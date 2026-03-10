@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四元素占卜</title>
+<style>
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+}
+h1{
+  font-size:28px;
+  margin-bottom:10px;
+}
+p{
+  opacity:0.8;
+  margin-bottom:20px;
+}
+button{
+  padding:16px 28px;
+  font-size:18px;
+  border:none;
+  border-radius:12px;
+  background:#6366f1;
+  color:white;
+  cursor:pointer;
+  margin:5px;
+}
+button:active{
+  transform:scale(0.98);
+}
+.card{
+  display:none;
+  margin-top:30px;
+  padding:25px;
+  border-radius:16px;
+  background:#1e293b;
+}
+.card img{
+  width:160px;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+.element{
+  font-size:24px;
+  margin-bottom:10px;
+}
+.meaning{
+  font-size:16px;
+  line-height:1.6;
+  opacity:0.9;
+}
+</style>
+</head>
+<body>
+
+<h1>四元素占卜</h1>
+<p>靜下心，想著你的問題，按下抽取元素</p>
+
+<button onclick="drawElement()">抽牌</button>
+
+<div class="card" id="card">
+  <img id="cardImg" src="" alt="元素圖片">
+  <div class="element" id="cardName"></div>
+  <div class="meaning" id="cardMeaning"></div>
+</div>
+
+<script>
+const elements=[
+{
+name:"地",
+image:"https://drive.google.com/uc?export=view&id=1AH-4-2wYxXGtVZN0Odqhn_2OC0VV6cc1",
+meaning:"象徵穩定與現實。現在需要腳踏實地建立基礎。"
+},
+{
+name:"水",
+image:"https://drive.google.com/uc?export=view&id=1kcPdG56Br29K63ows6udWTCOubMVJRUo",
+meaning:"象徵情感與直覺。傾聽你的內在感受。"
+},
+{
+name:"火",
+image:"https://drive.google.com/uc?export=view&id=1McWH5vy4J-iazjdqXkbgU8kbjF30Bt_n",
+meaning:"象徵行動與能量。勇氣會帶來突破。"
+},
+{
+name:"風",
+image:"https://drive.google.com/uc?export=view&id=185gecPDKj68G5QLezinn_U47UB70xIFu",
+meaning:"象徵思想與變化。新的觀點正在出現。"
+}
+];
+
+function drawElement(){
+  const random = Math.floor(Math.random()*elements.length);
+  const card = elements[random];
+  document.getElementById("card").style.display="block";
+  document.getElementById("cardImg").src = card.image;
+  document.getElementById("cardName").innerText = card.name;
+  document.getElementById("cardMeaning").innerText = card.meaning;
+}
+</script>
+
+</body>
+</html>
